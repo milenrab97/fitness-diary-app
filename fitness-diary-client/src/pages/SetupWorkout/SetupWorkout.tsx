@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import Input from '../../components/common/Input';
 import { PlusIcon, TrashIcon } from '@heroicons/react/16/solid';
@@ -73,7 +72,8 @@ const Exercise = ({
   );
 };
 
-const DailyWorkout = ({ dayOrder }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DailyWorkout = ({ dayOrder }: any) => {
   const [exercises, setExercises] = useState<TemplateExercise[]>([
     createEmptyExercise(),
   ]);

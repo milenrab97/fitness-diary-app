@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import DatePicker from '../../components/common/DatePicker';
 import Select from 'react-select';
 import { gzclp } from '../../mocks';

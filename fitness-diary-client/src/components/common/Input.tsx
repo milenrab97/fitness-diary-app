@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface InputProps {
   value: string;
   onChange: (newValue: string) => void;
