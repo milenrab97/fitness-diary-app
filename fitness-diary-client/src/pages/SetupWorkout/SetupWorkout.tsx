@@ -1,17 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import Input from '../../components/common/Input';
-import { MinusIcon, PlusIcon, TrashIcon } from '@heroicons/react/16/solid';
+import { PlusIcon, TrashIcon } from '@heroicons/react/16/solid';
 import { ClipboardDocumentIcon } from '@heroicons/react/20/solid';
+import { TemplateExercise } from '../../types/workout';
 
-type Exercise = {
-  id: string;
-  name: string;
-  series: number;
-  reps: number;
-};
-
-const createEmptyExercise = (): Exercise => {
+const createEmptyExercise = (): TemplateExercise => {
   return {
     id: new Date().toISOString(),
     name: '',
@@ -24,8 +18,8 @@ const Exercise = ({
   data,
   handleDeleteClick,
 }: {
-  data: Exercise;
-  handleDeleteClick: (data: Exercise) => void;
+  data: TemplateExercise;
+  handleDeleteClick: (data: TemplateExercise) => void;
 }) => {
   return (
     <div className="flex items-center gap-2">
@@ -80,14 +74,14 @@ const Exercise = ({
 };
 
 const DailyWorkout = ({ dayOrder }) => {
-  const [exercises, setExercises] = useState<Exercise[]>([
+  const [exercises, setExercises] = useState<TemplateExercise[]>([
     createEmptyExercise(),
   ]);
 
   const handlePlusClick = () => {
     setExercises((exercises) => [...exercises, createEmptyExercise()]);
   };
-  const handleDeleteClick = (data: Exercise) => {
+  const handleDeleteClick = (data: TemplateExercise) => {
     setExercises(exercises.filter((d) => d.id !== data.id));
   };
 
